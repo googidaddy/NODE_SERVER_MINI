@@ -1,3 +1,4 @@
+import cors from 'cors'
 import dotenv from 'dotenv'
 import express, { Request, Response } from 'express'
 import path from 'path'
@@ -5,6 +6,7 @@ dotenv.config( { path: path.join( __dirname, '..', '.env' ) } )
 
 const main = () => {
   const app = express()
+  app.use( cors() )
   const PORT = process.env.PORT
   app.use( express.static( path.join( __dirname, '..', 'public' ) ) )
   app.use( express.json() )
